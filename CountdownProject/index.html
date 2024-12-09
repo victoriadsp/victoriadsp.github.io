@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./styles.css">
+        
+    </head> 
+    <body>
+        <div class="container">
+
+            <div class="launch-time">
+                <div>
+                    <p id="days" class="countdown-text">00</p>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div>
+                    <p id="hours" class="countdown-text">00</p>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div>
+                    <p id="minutes" class="countdown-text">00</p>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div>
+                    <p id="seconds" class="countdown-text">00</p>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+
+            </div>
+
+
+
+            <div >
+                <h1 class = "header_text">Zählst du schon die Tage, bis wir uns wiedersehen, mon petit chou?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXhyb2NqeDg1cWY3dHNkbmMxNDg3Nmd3azZ5ZHBicTJnZG5pMGlyZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fvN5KrNcKKUyX7hNIA/giphy.webp" alt="Cute animated illustration">
+            </div>
+            <div class = "buttons">
+                <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+                <script>
+                    function nextPage() {
+                        window.location.href = "yes.html";
+                    }
+                    
+                    function moveButton() {
+                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85 - 50;
+                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+                        document.getElementById('noButton').style.left = `${x}px`;
+                        document.getElementById('noButton').style.top = `${y}px`;
+                    }
+                </script> 
+            </div>
+
+            <script>
+            var CountDownDate = new Date('Dec 27, 2024 13:00:00 GMT+0100').getTime();
+            var x = setInterval(function(){
+                var now = new Date().getTime();
+                var distance = CountDownDate - now;
+
+                var days = Math.floor(distance / (1000 * 60 * 60 *24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerHTML = days;
+                document.getElementById('hours').innerHTML = hours;
+                document.getElementById('minutes').innerHTML = minutes;
+                document.getElementById('seconds').innerHTML = seconds;
+
+                if(distance < 0){
+                    clearInterval(x);
+                    document.getElementById('days').innerHTML = '00';
+                    document.getElementById('hours').innerHTML = '00';
+                    document.getElementById('minutes').innerHTML = '00';
+                    document.getElementById('seconds').innerHTML = '00';
+                }
+
+            }, 1000);
+            </script>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+       
+    </body> 
+</html>
